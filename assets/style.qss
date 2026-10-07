@@ -1,0 +1,310 @@
+/* Spotlight — dark theme, purple-accented, card-based dashboard aesthetic.
+
+   Palette (kept here as a single reference since QSS has no variables):
+     App background     #14151f
+     Sidebar background #10111a
+     Card background     #1b1d2b
+     Card border          rgba(255,255,255,0.06)
+     Text primary        #f2f2f7
+     Text secondary       #9a9db0
+     Accent purple        #8b5cf6
+     Accent purple hover  #7c4de0
+     Accent orange (Maintenance) #fb923c
+     Accent green (Active)       #34d399
+     Accent blue (Available)     #60a5fa
+     Accent violet (Owners)      #a78bfa
+*/
+
+QWidget {
+    font-family: "__FONT_FAMILY__", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    font-size: 13px;
+    color: #f2f2f7;
+}
+
+QMainWindow, QDialog, QWidget#InventoryView, QWidget#UsersView,
+QWidget#SettingsView, QWidget#DashboardView {
+    background-color: #14151f;
+}
+
+/* ---------- Sidebar ---------- */
+
+#Sidebar {
+    background-color: #10111a;
+    border: none;
+    outline: none;
+    padding: 12px 8px;
+}
+
+#Sidebar::item {
+    color: #9a9db0;
+    padding: 10px 14px;
+    border-radius: 8px;
+    margin: 2px 0px;
+}
+
+#Sidebar::item:selected {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+        stop:0 #8b5cf6, stop:1 #7c4de0);
+    color: #ffffff;
+    font-weight: 600;
+}
+
+#Sidebar::item:hover:!selected {
+    background-color: #1b1d2b;
+    color: #e2e3ec;
+}
+
+#AccountFooter {
+    background-color: #10111a;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+#AccountName {
+    color: #f2f2f7;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+#AccountRoleLabel {
+    color: #a78bfa;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+#LogoutButton {
+    background-color: transparent;
+    color: #9a9db0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+#LogoutButton:hover {
+    background-color: rgba(255, 255, 255, 0.06);
+    color: #f2f2f7;
+}
+
+/* ---------- Titles ---------- */
+
+#ScreenTitle {
+    font-size: 21px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    color: #f2f2f7;
+}
+
+#PanelTitle {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -0.1px;
+    color: #f2f2f7;
+}
+
+/* ---------- Stat tiles + icon badges ---------- */
+
+#StatTile {
+    background-color: #1b1d2b;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 16px;
+    min-width: 150px;
+}
+
+#StatTile:hover {
+    background-color: #21243570;
+    border-color: #8b5cf6;
+}
+
+#IconBadge {
+    border-radius: 18px;
+}
+
+#StatValue {
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: #f2f2f7;
+}
+
+#StatCaption {
+    color: #9a9db0;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+}
+
+/* ---------- Buttons ---------- */
+
+#PrimaryButton {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+        stop:0 #8b5cf6, stop:1 #7c4de0);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-weight: 600;
+}
+
+#PrimaryButton:hover {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+        stop:0 #9668f7, stop:1 #8558e8);
+}
+
+QPushButton {
+    background-color: #232636;
+    color: #e2e3ec;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    padding: 7px 14px;
+}
+
+QPushButton:hover {
+    background-color: #2a2d40;
+    border-color: rgba(255, 255, 255, 0.14);
+}
+
+QPushButton:disabled {
+    color: #5c5f70;
+    background-color: #1b1d2b;
+    border-color: rgba(255, 255, 255, 0.04);
+}
+
+QPushButton:pressed {
+    background-color: #1b1d2b;
+}
+
+/* ---------- Text inputs ---------- */
+
+QLineEdit, QComboBox, QDateEdit, QPlainTextEdit, QSpinBox {
+    background-color: #1b1d2b;
+    color: #f2f2f7;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 8px 10px;
+    selection-background-color: #8b5cf6;
+}
+
+QLineEdit:focus, QComboBox:focus, QDateEdit:focus, QPlainTextEdit:focus {
+    border-color: #8b5cf6;
+}
+
+QComboBox::drop-down {
+    border: none;
+    width: 22px;
+}
+
+QComboBox QAbstractItemView {
+    background-color: #1b1d2b;
+    color: #f2f2f7;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    selection-background-color: #8b5cf6;
+    outline: none;
+}
+
+#FilterLabel {
+    color: #9a9db0;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+#SearchHint {
+    color: #6d7086;
+    font-size: 11px;
+    padding-left: 2px;
+}
+
+/* ---------- Tables ---------- */
+
+QTableView, QTableWidget {
+    background-color: #1b1d2b;
+    alternate-background-color: #202333;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 8px;
+    gridline-color: rgba(255, 255, 255, 0.05);
+    color: #e2e3ec;
+    selection-background-color: #382a5c;
+    selection-color: #f2f2f7;
+}
+
+QTableView::item, QTableWidget::item {
+    padding: 6px 8px;
+}
+
+QHeaderView::section {
+    background-color: #171826;
+    color: #9a9db0;
+    padding: 8px;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    font-weight: 600;
+}
+
+/* ---------- Status / empty states ---------- */
+
+#EmptyState {
+    color: #6d7086;
+    font-size: 14px;
+    padding: 40px;
+}
+
+#CappedNotice {
+    background-color: rgba(251, 146, 60, 0.12);
+    color: #fdba74;
+    border: 1px solid rgba(251, 146, 60, 0.35);
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 12px;
+}
+
+#PlaceholderLabel {
+    color: #6d7086;
+    font-size: 16px;
+}
+
+/* ---------- Dialogs / message boxes ---------- */
+
+QDialog {
+    background-color: #171826;
+}
+
+QMessageBox {
+    background-color: #171826;
+}
+
+QMessageBox QLabel {
+    color: #f2f2f7;
+}
+
+QLabel {
+    color: #e2e3ec;
+}
+
+QListWidget {
+    background-color: #1b1d2b;
+    color: #e2e3ec;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+}
+
+QScrollBar:vertical {
+    background: #14151f;
+    width: 10px;
+}
+
+QScrollBar::handle:vertical {
+    background: #2a2d40;
+    border-radius: 5px;
+    min-height: 24px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background: #383c54;
+}
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    height: 0px;
+}
